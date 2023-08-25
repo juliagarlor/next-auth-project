@@ -33,7 +33,8 @@ export interface AccessTokenInterface {
     given_name: string, 
     //surname
     family_name: string, 
-    email: string 
+    email: string,
+    image: string
 }
 
 export interface NewTokenInterface {

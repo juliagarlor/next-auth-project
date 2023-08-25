@@ -30,7 +30,7 @@ export default function Home() {
         name: decodedAccessToken.given_name,
         surname: decodedAccessToken.family_name,
         email: decodedAccessToken.email,
-        image: (session.user && session.user.image) ? session.user.image : "../styles/img/gengar.jpg"
+        image: decodedAccessToken.image
       }
       setCurrentUser(loggedUser)
     }
@@ -49,7 +49,7 @@ export default function Home() {
       <div className='flex-1 flex flex-row'>
         <div>
           <div>
-            <img src="/img/gengar.jpg" alt="User photo" />
+            <img src={currentUser.image} alt="User photo" />
           </div>
           <div>
             <p>Name: {currentUser.name}</p>
