@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
         return token
       },
       async session( { session, token, user }: { session: Session, token: JWT, user: User | AdapterUser }) {
-
+        //Image in session.user.image
         if (token && session.user) {
           session.user.id = token.id;
         }

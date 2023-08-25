@@ -19,3 +19,10 @@ export interface UserRepresentation{
         manage: boolean
     }
 }
+
+export interface User{
+    name: string,
+    surname: string,
+    email: string,
+    image: string
+}
