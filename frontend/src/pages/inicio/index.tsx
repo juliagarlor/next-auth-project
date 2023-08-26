@@ -45,14 +45,6 @@ export default function Home() {
       <div className='flex flex-col'>
         <div className='my-3 w-full flex justify-around'>
           <UserCard user={currentUser}></UserCard>
-          {/* <div>
-            <img src={currentUser.image} alt="User photo" />
-          </div>
-          <div>
-            <p>Name: {currentUser.name}</p>
-            <p>Surname: {currentUser.surname}</p>
-            <p>Email: {currentUser.email}</p>
-          </div> */}
         </div>
       </div>
     </div>

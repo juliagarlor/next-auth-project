@@ -14,9 +14,9 @@ export default function UserCard({ user } : { user: User}){
             title="user photo"
           />
           <CardContent>
-            <p><strong>Name: </strong> {user.name}</p>
-            <p><strong>Surname: </strong> {user.surname}</p>
-            <p><strong>Email: </strong> {user.email}</p>
+            <Typography variant='subtitle1'>Name: {user.name}</Typography>
+            <Typography variant='subtitle1'>Surname: {user.surname}</Typography>
+            <Typography variant='subtitle1'>Email: {user.email}</Typography>
           </CardContent>
         </Card>
     );
