@@ -1,9 +1,11 @@
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import jwt_decode from "jwt-decode";
 import { AccessTokenInterface } from '@/models/TokenInterface';
 import router from 'next/router';
 import { User } from '@/models/UserInterfaces';
+import UserCard from '@/components/UserCard';
+import Header from '@/components/Header';
 
 export default function Home() {
   const { data: session, status } = useSession({
@@ -36,28 +38,22 @@ export default function Home() {
     }
 	}, [status]);
 
-  function logout(){
-    signOut({ redirect: false, callbackUrl: "/" }).then((data) => {
-      console.log(data);
-      router.push("/");
-    })
-  }
-
   return (
     (status === "authenticated" && session) ? 
     <div className='min-h-screen flex flex-col'>
-      <div className='flex-1 flex flex-row'>
-        <div>
-          <div>
+      <Header></Header>
+      <div className='flex flex-col'>
+        <div className='my-3 w-full flex justify-around'>
+          <UserCard user={currentUser}></UserCard>
+          {/* <div>
             <img src={currentUser.image} alt="User photo" />
           </div>
           <div>
             <p>Name: {currentUser.name}</p>
             <p>Surname: {currentUser.surname}</p>
             <p>Email: {currentUser.email}</p>
-          </div>
+          </div> */}
         </div>
-        <button onClick={logout}>Logout</button>
       </div>
     </div>
      : <></>
