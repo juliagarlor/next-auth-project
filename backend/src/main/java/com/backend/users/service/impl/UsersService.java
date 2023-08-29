@@ -1,5 +1,6 @@
 package com.backend.users.service.impl;
 
+import com.backend.users.utils.dtos.ShortUserDTO;
 import com.backend.users.service.IService;
 import lombok.extern.apachecommons.CommonsLog;
 import org.keycloak.representations.idm.UserRepresentation;
@@ -36,7 +37,7 @@ public class UsersService implements IService {
     }
 
     @Override
-    public List<String> getTeamUsers(Jwt jwt) {
+    public List<ShortUserDTO> getTeamUsers(Jwt jwt) {
         List<UserRepresentation> output = new ArrayList<>();
         try {
             log.info("Fetching users from user team");
@@ -48,7 +49,7 @@ public class UsersService implements IService {
 
         log.info(String.format("Returning %s users", output.size()));
         return output.stream()
-                .map(userRepresentation -> userRepresentation.getFirstName() + " " + userRepresentation.getLastName())
+                .map(userRepresentation -> new ShortUserDTO(userRepresentation))
                 .toList();
     }
 }

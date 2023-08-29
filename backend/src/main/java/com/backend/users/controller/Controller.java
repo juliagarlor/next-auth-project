@@ -1,5 +1,6 @@
 package com.backend.users.controller;
 
+import com.backend.users.utils.dtos.ShortUserDTO;
 import com.backend.users.service.IService;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class Controller {
 	}
 
 	@GetMapping("/team")
-	public List<String> getTeamUsers(@AuthenticationPrincipal Jwt jwt){
+	public List<ShortUserDTO> getTeamUsers(@AuthenticationPrincipal Jwt jwt){
 		return usersService.getTeamUsers(jwt);
 	}
 }
