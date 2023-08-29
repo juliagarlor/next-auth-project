@@ -1,6 +1,7 @@
 package com.backend.users.controller;
 
 import com.backend.users.service.impl.UsersService;
+import com.backend.users.utils.dtos.ShortUserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,12 +53,15 @@ class ControllerTest {
 
     @Test
     void givenValidAuthentication_whenGetReviewersList_thenReturnStringList() throws Exception {
-        List<String> output = List.of("Pepe Lorente", "Juan Castro");
+        ShortUserDTO shortUserDTO = new ShortUserDTO();
+        shortUserDTO.setName("John");
+        shortUserDTO.setSurname("Smith");
+        List<ShortUserDTO> output = List.of(shortUserDTO);
 
         Mockito.when(usersService.getTeamUsers(Mockito.any())).thenReturn(output);
 
-        MvcResult result = mockMvc.perform(get("/users/users/reviewers"))
+        MvcResult result = mockMvc.perform(get("/users/team"))
                 .andExpect(status().isOk()).andReturn();
-        assertTrue(result.getResponse().getContentAsString().contains("\"Pepe Lorente\",\"Juan Castro\""));
+        assertTrue(result.getResponse().getContentAsString().contains("\"surname\":\"Smith\""));
     }
 }

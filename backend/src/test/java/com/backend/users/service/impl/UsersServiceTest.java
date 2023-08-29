@@ -24,7 +24,7 @@ class UsersServiceTest {
     private KeycloakService keycloakService;
 
     @Test
-    void givenValidJWT_whenGetUsersList_thenReturnUserRepresentatioList() throws IOException {
+    void givenValidJWT_whenGetUsersList_thenReturnUserRepresentationList() throws IOException {
         String testToken = "jaiokghnvahn";
         Jwt jwtMock = Mockito.mock(Jwt.class);
         Mockito.when(jwtMock.getTokenValue()).thenReturn(testToken);
@@ -33,7 +33,7 @@ class UsersServiceTest {
 
         Mockito.when(keycloakService.getUserList(testToken)).thenReturn(output);
 
-        assertTrue(usersService.getUsersList(jwtMock).size() > 0);
+        assertFalse(usersService.getUsersList(jwtMock).isEmpty());
     }
 
     @Test
@@ -60,7 +60,7 @@ class UsersServiceTest {
 
         Mockito.when(keycloakService.getTeamUsers(testToken)).thenReturn(output);
 
-        assertTrue(usersService.getTeamUsers(jwtMock).size() > 0);
+        assertFalse(usersService.getTeamUsers(jwtMock).isEmpty());
     }
 
     @Test
