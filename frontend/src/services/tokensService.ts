@@ -101,7 +101,6 @@ export async function refreshTokensInContext(ctx: DocumentContext): Promise<Acce
         setCookie("refreshToken", newTokens!.refreshToken, { req, res});
     }
 
-    console.log(newTokens);
     return newTokens;
 }
 
@@ -117,7 +116,6 @@ export async function refreshTokensOutOfContext(): Promise<AccessAndRefreshToken
         setCookie("refreshToken", newTokens!.refreshToken);
     }
 
-    console.log(newTokens);
     return newTokens;
 }
 
