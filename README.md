@@ -99,8 +99,10 @@ When it stops, you will find the website up and ready in http://localhost:3000.
 
 Base: http://localhost:3000.
 
-![Log-In](screenshots/home-day.JPG)
+![Log-In](screenshots/LogIn.JPG)
 
 Home: http://localhost:3000/home. **Unless you have already logged in, you will be redirected to the root page for log in**
 
-![Home](screenshots/pokedex.JPG)
+![Home](screenshots/HomeProfile.JPG)
+
+![Home](screenshots/HomeTeam.JPG)
