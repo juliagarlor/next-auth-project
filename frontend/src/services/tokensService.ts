@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 import { EXPIRED_TOKEN_ERROR } from "@/models/const/Constants";
 
 export function login(): void{
-    const callbackUrl = process.env.NEXT_PUBLIC_ROOT_PAGE + "inicio";
+    const callbackUrl = process.env.NEXT_PUBLIC_ROOT_PAGE + "home";
     signIn("keycloak",{ callbackUrl: callbackUrl });
 }
 
