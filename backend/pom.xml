@@ -42,12 +42,12 @@
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-admin-client</artifactId>
-<!--			<version>21.1.1</version>-->
+			<version>21.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mashape.unirest</groupId>
 			<artifactId>unirest-java</artifactId>
-<!--			<version>1.4.9</version>-->
+			<version>1.4.9</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec.javax.ws.rs</groupId>
